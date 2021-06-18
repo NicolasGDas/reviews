@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 export const globalStyles = StyleSheet.create({
     container:{
-        //padding:24
+        padding:24
     },
     titleText:{
         fontFamily: 'sans-serif-condensed',

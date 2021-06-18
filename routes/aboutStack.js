@@ -1,5 +1,5 @@
 import {createStackNavigator} from 'react-navigation-stack'
-import Header from '../shared/Header'
+import Header from '../shared/header'
 import React from 'react'
 import About from '../screens/about'
 

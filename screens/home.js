@@ -5,7 +5,7 @@ import { globalStyles } from '../styles/global';
 
 
 
-export default function Home({ navigation }) {
+export default function Home({navigation}) {
 
     const [reviews, setReviews] = useState([
         {title: 'Bloodborne',rating: 5, body: 'lorem ipsum',key:'1'},
@@ -14,13 +14,13 @@ export default function Home({ navigation }) {
         {title: 'League of Legends',rating: 1, body: 'lorem ipsum',key:'4'}
     ]);
         return (
-            <View style={globalStyles.container}source={require('../assets/heart_logo.png')}>
+            <View style={globalStyles.container}>
                 <FlatList 
                     data={reviews}
                     renderItem = {({ item }) => (
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => navigation.navigate('ReviewDetails', item)}>
                             <Card>
-                                <Text style={globalStyles.titleText}>{item.title}</Text>
+                                <Text style={globalStyles.titleText}>{ item.title }</Text>
                             </Card>
                         </TouchableOpacity>
                     )}
