@@ -9,7 +9,8 @@ export const globalStyles = StyleSheet.create({
         fontSize: 18,
         color: '#333',
         height: 45,
-        fontWeight: "bold"
+        fontWeight: "bold",
+        flexDirection:'row',
     },
     paragraph:{
         // marginVertical:8,
