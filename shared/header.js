@@ -12,7 +12,7 @@ export default function Header({ title, navigation }) {
         <ImageBackground source={require('../assets/game_bg.png')} style={styles.header}>
             <MaterialIcons name='menu' size={28} onPress={openMenu} style={styles.icon} />
             <View style={styles.headerTitle}>
-                <Image source={require('../assets/heart_logo.png')} style={styles.headerImage} />
+                <Image source={require('../assets/logo.jpg')} style={styles.headerImage} />
                 <Text style={styles.headerText}>{title}</Text>
             </View>
         </ImageBackground>
@@ -41,8 +41,8 @@ export default function Header({ title, navigation }) {
         flexDirection: 'row'
     },
     headerImage: {
-        width: 26,
-        height: 26,
+        width: 40,
+        height: 40,
         marginHorizontal: 10
     },
 });
