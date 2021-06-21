@@ -10,7 +10,7 @@ const reviewSchema = yup.object({
     confirmation: yup.string()
     .required()
     .test('confirmed','plz enter confirmar',(val)=>{
-        return (val === 'confirmar')
+        return (val === 'conf')
     })
 })
 
@@ -24,7 +24,7 @@ export default function deleteReview({params}){
                 onSubmit={(values,actions)=>{
                     console.log(values)
                     actions.resetForm()
-                    params.deleteReview(values)
+                    params.deleteReview(values.id)
                 }}>
                     {(props)=>(
                         <View>
