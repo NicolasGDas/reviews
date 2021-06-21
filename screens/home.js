@@ -8,8 +8,8 @@ import ReviewFormAdd from './reviewFormAdd';
 import ReviewFormEdit from './reviewFormEdit';
 import DeleteReview from './deleteReview';
 import { StatusBar } from 'expo-status-bar';
-import {AppLoading} from 'expo'
-
+import { addReviewTemp } from '../data/reviewsAdded';
+import { data } from '../data/reviews';
 
 
 
@@ -19,20 +19,16 @@ export default function Home({navigation}) {
     const [modalDeleteOpen,setModalDeleteOpen]=useState(false)
     const [modalAddOpen,setModalAddOpen] = useState(false);
     const [modalEditOpen,setModalEditOpen] = useState(false);
-    const [reviews, setReviews] = useState([
-        {title: 'Bloodborne',rating: 5, body: 'lorem ipsum',key:'1'},
-        {title: 'Witcher 3',rating: 5, body: 'El mejor juego, no me dan los corazones para el rating',key:'2'},
-        {title: 'World of Warcraft',rating: 2, body: 'lorem ipsum',key:'3'},
-        {title: 'League of Legends',rating: 1, body: 'lorem ipsum',key:'4'}
-    ]);
+    const [reviews, setReviews] = useState(data);
     {/**--------------------------------------------------------------- */}
 
     {/**Funtions and variables ------------------------------------------------------------------ */}
     const addReview = (review)=>{
-        review.key = Math.random().toString();
+        review.key = (Math.floor(Math.random() *(1000-5) * 10)).toString();
         setReviews((currentReviews)=>{
             return[review,...currentReviews]
         });
+        //addReviewTemp(review)
         setModalAddOpen(false)
 
     }
@@ -64,10 +60,11 @@ export default function Home({navigation}) {
 
         
     }
-    const deleteReview =  (values)=>{
+    const deleteReview =  (id)=>{
         console.log("Entre al delete")
-        reviews.splice((review =>{ if(review.key === values.id){return review}}),1)
-        console.log(reviews)
+        console.log(id)
+        const reviewToDelete = reviews.filter(review => review["key"]=== id)
+        reviews.splice(reviews.indexOf(reviewToDelete[0]),1)       
         setModalDeleteOpen(false)
         
     }
@@ -140,6 +137,7 @@ export default function Home({navigation}) {
                 />
                 {/**First modal for adding------------- */}
                 {/**Flat list items listed--------------------------- */}
+
                 <FlatList 
                     data={reviews}
                     renderItem = {({ item }) => (
