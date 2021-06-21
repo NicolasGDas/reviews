@@ -273,9 +273,9 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         alignSelf: 'center',
         alignSelf: 'center',
-        borderColor: 'white',
+        borderColor: 'black',
         borderRadius: 100,
-        color: 'white'
+        color: 'black'
     },
     modalClose: {
         marginTop: 20,
