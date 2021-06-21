@@ -4,3 +4,5 @@ export const data = [
     {title: 'World of Warcraft',rating: 2, body: 'lorem ipsum',key:'3'},
     {title: 'League of Legends',rating: 1, body: 'lorem ipsum',key:'4'}
 ]
+
+
